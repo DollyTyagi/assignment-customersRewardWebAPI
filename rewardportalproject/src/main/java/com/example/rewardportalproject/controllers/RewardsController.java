@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.rewardportalproject.entities.CustomerRewardPoints;
 import com.example.rewardportalproject.entities.Customers;
 import com.example.rewardportalproject.entities.TransactionsRecord;
+import com.example.rewardportalproject.services.CustomerRewardPointsService;
 import com.example.rewardportalproject.services.CustomersService;
 import com.example.rewardportalproject.services.TransactionsRecordService;
 
@@ -23,12 +25,12 @@ public class RewardsController {
 	private CustomersService customerService;
 	
 	@Autowired
-	private TransactionsRecordService transactionRecordService;
+	private CustomerRewardPointsService customerRewardPointsService;
 	
 	
-	@GetMapping("/monthRecords/{}")
-	public List<TransactionsRecord> getMonthlyRecords(@PathVariable long id , @RequestParam String month) {
-		return this.transactionRecordService.getMonthlyTransactionRecord(id, month);
+	@GetMapping("/monthRecords/{}/{}")
+	public List<CustomerRewardPoints> getMonthlyRecords(@PathVariable Customers customer, @RequestParam String month) {
+		return this.customerRewardPointsService.calculateRewardPoints(customer , month);
 	}
 
 	
