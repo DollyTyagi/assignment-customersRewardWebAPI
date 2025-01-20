@@ -5,6 +5,8 @@ Inside com.example.rewardportalproject.services package , we have few services i
                                                                                                                              CustomersService , CustomerServiceImpl ,
                                                                                                                               TransactionsRecordService , TransactionsRecordServiceImpl
 Inside com.example.rewardportalproject.dao package , we have two repositories which can be use when we connect with database and will JPA as an ORM : CustomerRepository , TransactionRepository.
+
+As of now, I used a static data sets in class CustomerServiceImpl.
                                                                                                                               
                                                                                                                               
 
